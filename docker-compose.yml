@@ -1,0 +1,11 @@
+version: '3'
+services:
+  geo:
+    build: .
+    command: rails s -b 0.0.0.0
+    container_name: geolocation_service
+    ports:
+      - 3003:3000
+    volumes:
+      - .:/opt/geo_app
+
