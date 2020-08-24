@@ -1,24 +1,50 @@
-# README
+# Geolocation Service
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Geolocation Service is responsible for dealing with geolocation. It is responsable to find a coordinates of address.
 
-Things you may want to cover:
+## Environment dependencies
 
-* Ruby version
+* Ruby 2.7
+* RabbitMQ
 
-* System dependencies
+### Setup
+You can use docker to run this app. 
 
-* Configuration
+```bash
+  docker-compose up -d
+  docker-compose exec geo rake db:create
+  docker-compose exec geo rake db:migrate
+  docker-compose exec geo rake db:test:prepare
+  docker-compose exec geo rspec
+```
 
-* Database creation
+### Logs
 
-* Database initialization
+```bash
+  docker-compose logs -f
+```
 
-* How to run the test suite
+### Start
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+  docker-compose up
+```
 
-* Deployment instructions
+### Stop
 
-* ...
+```bash
+  docker-compose stop
+```
+
+### Tests
+
+```bash
+  docker-compose exec geo rspec
+```
+
+## Alerts
+To execute this project must execute with Order-Service's project, so you need to clone both repositories on the same folder and extract the docker-compose.yml  to root folder. (Both docker-compose.yml are equal)
+
+```bash
+  docker-compose up --build
+```
