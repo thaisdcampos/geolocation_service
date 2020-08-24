@@ -6,6 +6,8 @@ ruby '2.7.0'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'puma', '~> 4.1'
 
+gem 'faraday'
+gem 'faraday_middleware'
 gem 'geocoder'
 gem 'sneakers'
 
