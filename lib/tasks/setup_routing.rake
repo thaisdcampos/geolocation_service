@@ -7,10 +7,11 @@ namespace :rabbitmq do
     conn.start
     
     ch = conn.create_channel
-    x = ch.direct('challenge', :persistent => true)
+    x = ch.fanout("challenge")
 
-    queue = ch.queue('geolocation.order.update', :durable => true, :ack => true, :routing_key => 'order_service.order.created')
-    queue.bind('challenge', :routing_key => 'order_service.order.created')
+    queue = ch.queue("order_service.order.created", durable: true)
+    queue.bind("challenge")
+
     conn.close
   end
 end
