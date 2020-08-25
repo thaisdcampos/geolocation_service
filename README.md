@@ -1,6 +1,10 @@
 # Geolocation Service
 
-Geolocation Service is responsible for dealing with geolocation. It is responsable to find a coordinates of address.
+Geolocation is a microservice that enriches a payload with geographic coordinates.
+
+Its mains responsibility is to listen to events with addresses and add latitude and longitude to them. To do that, it currently makes use of the power of [Google Maps API](https://developers.google.com/maps/documentation/javascript/overview), which works on top of [a Geographic coordinate system](https://en.wikipedia.org/wiki/Geographic_coordinate_system).
+
+It was designed to work with events, which means that it does not have a public API to return lat/long information synchronously.
 
 ## Environment dependencies
 
